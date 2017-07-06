@@ -18,7 +18,7 @@ func NewServer(host, port string) BaseServer {
 }
 
 func (bs *BaseServer) Run() {
-	init_request_handler := &middlewares.RequestHandler{}
+	init_request_handler := &middlewares.RequestReceiver{}
 	bs.PrintServerInfo()
 	listen_address := bs.Host + ":" + bs.Port
 	log.Fatal(http.ListenAndServe(listen_address, init_request_handler))
