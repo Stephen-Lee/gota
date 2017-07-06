@@ -19,7 +19,6 @@ func init() {
 	flag.StringVar(&db_flag, "d", config.DEFAULT_DATABASE, "specific default database")
 	flag.StringVar(&host_flag, "h", config.DEFAULT_HOST, "specific default database")
 	flag.StringVar(&port_flag, "p", config.DEFAULT_PORT, "specific default database")
-	flag.Parse()
 }
 
 func CheckCommand() {
@@ -35,6 +34,7 @@ func OutputHelpInfo() {
 }
 
 func HandleCommand() {
+	flag.Parse()
 	switch os.Args[1] {
 	case "new":
 		// command_handlers.NewProject()
